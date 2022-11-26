@@ -14,16 +14,19 @@ from sendgrid.helpers.mail import Mail
 
 def iniciarServicio():
     app = Flask(__name__)
+    print("ingrese a iniciar servicio")
 
 
     @app.route("/")
     def inicio():
+        print("entre a inicio")
         test = os.environ.get("Test")
         return test
     
     
     @app.route("/mensajetxt")
     def mensajetxt():
+        print("entre a mensajetxt")
         try:
             account_sid = os.environ['TWILIO_ACCOUNT_SID']
             auth_token = os.environ['TWILIO_AUTH_TOKEN']
@@ -43,6 +46,7 @@ def iniciarServicio():
     
     @app.route("/email")
     def enviarCorreo():
+        print("entre a enviarCorreo")
     
         destino = request.args.get('correo_destino')
         asunto = request.args.get('asunto')
